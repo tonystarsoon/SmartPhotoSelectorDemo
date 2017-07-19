@@ -29,7 +29,6 @@ import cn.soon.engine.ImageEngine;
  */
 
 public class GlideEngine implements ImageEngine {
-
     @Override
     public void loadThumbnail(Context context, int resize, Drawable placeholder, ImageView imageView, Uri uri) {
         Glide.with(context)
@@ -42,8 +41,7 @@ public class GlideEngine implements ImageEngine {
     }
 
     @Override
-    public void loadGifThumbnail(Context context, int resize, Drawable placeholder, ImageView imageView,
-                                 Uri uri) {
+    public void loadGifThumbnail(Context context, int resize, Drawable placeholder, ImageView imageView, Uri uri) {
         Glide.with(context)
                 .load(uri)
                 .asBitmap()
@@ -76,5 +74,4 @@ public class GlideEngine implements ImageEngine {
     public boolean supportAnimatedGif() {
         return true;
     }
-
 }

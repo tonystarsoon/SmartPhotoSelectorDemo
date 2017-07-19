@@ -59,7 +59,6 @@ public class IncapableDialog extends DialogFragment {
                 dialog.dismiss();
             }
         });
-
         return builder.create();
     }
 }

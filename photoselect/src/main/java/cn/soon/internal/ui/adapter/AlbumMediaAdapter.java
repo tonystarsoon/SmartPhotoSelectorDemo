@@ -100,7 +100,6 @@ public class AlbumMediaAdapter extends
             }
         } else if (holder instanceof MediaViewHolder) {
             MediaViewHolder mediaViewHolder = (MediaViewHolder) holder;
-
             final Item item = Item.valueOf(cursor);
             mediaViewHolder.mMediaGrid.preBindMedia(new MediaGrid.PreBindInfo(
                     getImageResize(mediaViewHolder.mMediaGrid.getContext()),
@@ -258,6 +257,7 @@ public class AlbumMediaAdapter extends
 
     private static class MediaViewHolder extends RecyclerView.ViewHolder {
         private MediaGrid mMediaGrid;
+
         MediaViewHolder(View itemView) {
             super(itemView);
             mMediaGrid = (MediaGrid) itemView;
@@ -266,6 +266,7 @@ public class AlbumMediaAdapter extends
 
     private static class CaptureViewHolder extends RecyclerView.ViewHolder {
         private TextView mHint;
+
         CaptureViewHolder(View itemView) {
             super(itemView);
             mHint = (TextView) itemView.findViewById(R.id.hint);

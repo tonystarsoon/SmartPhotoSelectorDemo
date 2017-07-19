@@ -17,6 +17,7 @@ package cn.soon.internal.ui.widget;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
 import android.util.AttributeSet;
@@ -26,12 +27,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.soon.R;
+import cn.soon.engine.ImageEngine;
 import cn.soon.internal.entity.Item;
 import cn.soon.internal.entity.SelectionSpec;
 
 
 public class MediaGrid extends SquareFrameLayout implements View.OnClickListener {
-
     private ImageView mThumbnail;
     private CheckView mCheckView;
     private ImageView mGifTag;
@@ -115,8 +116,15 @@ public class MediaGrid extends SquareFrameLayout implements View.OnClickListener
             SelectionSpec.getInstance().imageEngine.loadGifThumbnail(getContext(), mPreBindInfo.mResize,
                     mPreBindInfo.mPlaceholder, mThumbnail, mMedia.getContentUri());
         } else {
-            SelectionSpec.getInstance().imageEngine.loadThumbnail(getContext(), mPreBindInfo.mResize,
-                    mPreBindInfo.mPlaceholder, mThumbnail, mMedia.getContentUri());
+            SelectionSpec instance = SelectionSpec.getInstance();
+
+            ImageEngine imageEngine = instance.imageEngine;
+
+            Context context = getContext();
+
+            Uri contentUri = mMedia.getContentUri();
+
+            imageEngine.loadThumbnail(context, mPreBindInfo.mResize, mPreBindInfo.mPlaceholder, mThumbnail, contentUri);
         }
     }
 
