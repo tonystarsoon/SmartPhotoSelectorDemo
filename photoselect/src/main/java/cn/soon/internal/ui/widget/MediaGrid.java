@@ -54,7 +54,6 @@ public class MediaGrid extends SquareFrameLayout implements View.OnClickListener
 
     private void init(Context context) {
         LayoutInflater.from(context).inflate(R.layout.media_grid_content, this, true);
-
         mThumbnail = (ImageView) findViewById(R.id.media_thumbnail);
         mCheckView = (CheckView) findViewById(R.id.check_view);
         mGifTag = (ImageView) findViewById(R.id.gif);
@@ -117,13 +116,9 @@ public class MediaGrid extends SquareFrameLayout implements View.OnClickListener
                     mPreBindInfo.mPlaceholder, mThumbnail, mMedia.getContentUri());
         } else {
             SelectionSpec instance = SelectionSpec.getInstance();
-
             ImageEngine imageEngine = instance.imageEngine;
-
             Context context = getContext();
-
             Uri contentUri = mMedia.getContentUri();
-
             imageEngine.loadThumbnail(context, mPreBindInfo.mResize, mPreBindInfo.mPlaceholder, mThumbnail, contentUri);
         }
     }

@@ -37,8 +37,7 @@ import cn.soon.internal.model.SelectedItemCollection;
 import cn.soon.internal.ui.widget.CheckView;
 import cn.soon.internal.ui.widget.MediaGrid;
 
-public class AlbumMediaAdapter extends
-        RecyclerViewCursorAdapter<RecyclerView.ViewHolder> implements
+public class AlbumMediaAdapter extends RecyclerViewCursorAdapter<RecyclerView.ViewHolder> implements
         MediaGrid.OnMediaGridClickListener {
 
     private static final int VIEW_TYPE_CAPTURE = 0x01;
@@ -65,7 +64,7 @@ public class AlbumMediaAdapter extends
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == VIEW_TYPE_CAPTURE) {
+        if (viewType == VIEW_TYPE_CAPTURE) {//拍照
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.photo_capture_item, parent, false);
             CaptureViewHolder holder = new CaptureViewHolder(v);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -77,7 +76,7 @@ public class AlbumMediaAdapter extends
                 }
             });
             return holder;
-        } else if (viewType == VIEW_TYPE_MEDIA) {
+        } else if (viewType == VIEW_TYPE_MEDIA) {//图片
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.media_grid_item, parent, false);
             return new MediaViewHolder(v);
         }
