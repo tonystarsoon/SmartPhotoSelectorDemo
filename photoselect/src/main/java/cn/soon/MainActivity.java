@@ -47,8 +47,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                         .captureStrategy(new CaptureStrategy(true, "com.zhihu.matisse.sample.fileprovider"))
                         .maxSelectable(9)
                         .addFilter(new GifSizeFilter(320, 320, 5 * Filter.K * Filter.K))
-                        .gridExpectedSize(
-                                getResources().getDimensionPixelSize(R.dimen.grid_expected_size))
+                        .gridExpectedSize(getResources().getDimensionPixelSize(R.dimen.grid_expected_size))
                         .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT)
                         .thumbnailScale(0.85f)
                         .imageEngine(new GlideEngine())
